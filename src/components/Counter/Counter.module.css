@@ -1,0 +1,28 @@
+.counter {
+    display:flex; 
+    flex-direction:column;
+    align-items: center;
+} 
+
+.value {
+margin:0px 20px;
+color:#4CAF50;
+font-size: 90px;
+font-weight: bold;
+}
+ 
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.button:last-child{
+    margin-right: 0px;
+} 
+
