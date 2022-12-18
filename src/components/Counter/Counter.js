@@ -1,5 +1,8 @@
-import css from 'components/Counter/Counter.module.css';
 import { Component } from 'react';
+import Controls from 'components/Counter/Controls';
+import Value from 'components/Counter/Value';
+import css from 'components/Counter/Counter.module.css';
+
 
 class Counter extends Component {
 
@@ -27,11 +30,16 @@ class Counter extends Component {
     render() {
         return (
             <div className={css.counter}>
-                <span className={css.value}>{this.state.value}</span>
-                <div>
-                    <button type="button" className={css.button} onClick={this.handleIncrement}>Increment by 1</button>
-                    <button type="button" className={css.button} onClick={this.handleDecrement}>Decrement by 1</button>
-                </div>
+
+                <Value
+                    value={this.state.value}
+                /> 
+
+                <Controls
+                    onIncrement={this.handleIncrement}
+                    onDecrement={this.handleDecrement}
+                />
+                
             </div>
     )  
     }

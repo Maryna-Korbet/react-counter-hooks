@@ -6,23 +6,31 @@
 
 .value {
 margin:0px 20px;
-color:#4CAF50;
+color:#00008b;
 font-size: 90px;
 font-weight: bold;
 }
  
 .button {
-    background-color: #4CAF50;
+    background-color: #00008b;
+    border-radius: 10px;
     border: none;
     color: white;
     padding: 20px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 25px;
     margin-right: 10px;
 }
 .button:last-child{
     margin-right: 0px;
 } 
+.button:active{
+    box-shadow: 2px 5px 2px 0 rgb(0 0 0 / 0.5);
+    
+}
+.button:hover{
+    cursor: pointer;
+}
 
