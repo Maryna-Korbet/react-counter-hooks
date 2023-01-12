@@ -1,48 +1,41 @@
-import { Component } from 'react';
-import Controls from 'components/Counter/Controls';
-import Value from 'components/Counter/Value';
+import { useState, useEffect } from 'react';
 import css from 'components/Counter/Counter.module.css';
 
 
-class Counter extends Component {
+export default function Counter() {
 
-    static defaultProps = {
-        initialValue: 0,
+    const [counterA, setCounterA] = useState(0);
+    const [counterB, setCounterB] = useState(0); 
+
+    const handleCounterAIncrement = () => {
+        setCounterA(state => state + 1);
     };
 
-    state = {
-        value: this.props.initialValue,
+    const handleCounterBIncrement = () => {
+        setCounterB(state => state + 1);
     };
 
-    handleIncrement = () => {
-        this.setState(prevState => ({
-            value: prevState.value + 1,
-        }));
-    };
+    useEffect(() => {
+        const totalClicks = counterA + counterB;
+        document.title ='${totalClicks} clicks';
+    }, [counterA, counterB]);
 
-    handleDecrement = () => {
-        this.setState(prevState => ({
-            value: prevState.value - 1,
-        }));
-    };
+    return (
+        <>
+            <button
+                type="button"
+                className={css.button}
+                onClick={handleCounterAIncrement}>
+                Clicked counterA ${counterA} times
+            </button>
 
+            <button
+                type="button"
+                className={css.button}
+                onClick={handleCounterBIncrement}>
+                Clicked counterB ${counterB} times
+            </button>
+        </>
+)  
+};
 
-    render() {
-        return (
-            <div className={css.counter}>
-
-                <Value
-                    value={this.state.value}
-                /> 
-
-                <Controls
-                    onIncrement={this.handleIncrement}
-                    onDecrement={this.handleDecrement}
-                />
-                
-            </div>
-    )  
-    }
-}
-
-export default Counter;
